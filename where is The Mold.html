@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<script src="app.js" async></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Elif ¦ Games</title>
+	</head>
+	<body id="body">
+    <audio src="109662__grunz__success.wav" id='success-tune'></audio>
+    <audio src="457751__tissman__fail5.wav" id='fail-tune'></audio>
+		<div id="entrance">
+			<h1 id="title" class="visible header">where is Tsipi??</h1>
+
+			<div class="level-choice">
+				<button class="btn" id="btn-easy" onclick="createTable(3)">easy</button>
+				<button class="btn" id="btn-medium" onclick="createTable(5)">
+					medium
+				</button>
+				<button class="btn" id="btn-hard" onclick="createTable(10)">
+					hard
+				</button>
+			</div>
+
+			<div class="overlay"></div>
+		</div>
+
+		<img
+			onclick="catchingMole()"
+			class="unvisible"
+			id="mole"
+			src="png-mole-download-pngtransparent-375.png"
+			alt=""
+		/>
+		<div class="overlayTable" id="game-over">
+			GAME OVER!
+		</div>
+
+		<div id="table-container" class="unvisible">
+			<div id="highest-score"><span>your record is:</span><span id='high-score'></span></div>
+
+			<table id="table-main"></table>
+		</div>
+		<div id="player-scales" dir="rtl" class="unvisible">
+			<div class="scale_host">
+				<span>successes:</span>
+				<span id="success"></span>
+			</div>
+			<br />
+			<div class="scale_host">
+				<span>fails:</span>
+				<span id="fails"></span>
+			</div>
+		</div>
+	</body>
+</html>
