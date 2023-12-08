@@ -1,10 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 #table-container {
 	position: relative;
 	z-index: 1000;
 }
 
 #highest-score {
-	direction: rtl;
 	z-index: 2000;
 	position: relative;
 	font-size: x-large;
@@ -19,27 +24,33 @@
 #body {
 	z-index: -3;
 	background-color: lightgreen;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
+#player-scales {
+	direction: ltr;
+}
 #table-main {
 	margin: auto;
 	margin-top: 50px;
 }
 
 table {
-	/* border-collapse: collapse; */
-	/* height: 400px; */
 	width: 42%;
-	/* border: 1px lightgreen; */
 	z-index: -2;
 	background-color: white;
 	border-radius: 61px;
 }
 
 .level-choice {
+	opacity: 0; /* Start with the element hidden */
+  animation: appearAnimation 2s ease-in-out 1.5s forwards;
 	display: flex;
 	justify-content: center;
 	margin-top: 20px;
+	position: relative;
+	z-index: 5;
 }
 td {
 	border: solid 4px lightgreen;
@@ -52,6 +63,7 @@ tr {
 }
 
 .btn {
+	cursor: pointer;
 	transition: all 6s linear 0s;
 	background-color: #4caf50;
 	border: none;
@@ -61,7 +73,7 @@ tr {
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;
+	margin: 10px 10px;
 	border-radius: 8px;
 	z-index: 8;
 }
@@ -78,11 +90,6 @@ tr {
 	text-align: center;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 :root {
 	--primary-color: #6cd9ce;
@@ -107,21 +114,23 @@ h1 {
 	font-size: 150px;
 	color: var(--primary-color);
 	transform: translateY(-600px);
-	animation: 1.2s slideIn ease-in-out forwards 1s;
+	animation: 0.5s slideIn ease-in-out forwards 1s;
 	z-index: 10;
 	opacity: 0;
 	position: relative;
 }
 
-h1::before {
-	content: '';
-	width: 0%;
-	height: 76px;
-	background-color: var(--secondary-color);
-	position: absolute;
-	bottom: -10px;
-	animation: 1s underline ease-in-out forwards 2s;
-	mix-blend-mode: screen;
+
+h1::after{
+		content: '';
+		height: 76px;
+		background-color: var(--secondary-color);
+		position: absolute;
+		bottom: -10px;
+		left: -20px; /* Adjust left and right values as needed */
+		right: -20px;
+		animation: 2.5s underline ease-in-out forwards 1s;
+		mix-blend-mode: screen;
 }
 
 .overlay {
@@ -135,8 +144,8 @@ h1::before {
 	background-color: var(--secondary-color);
 	transform: scale(0.5);
 	animation: 0.5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+	z-index: 1;
 }
-
 @keyframes skewBg {
 	0% {
 		transform: scale(0.5);
@@ -147,9 +156,21 @@ h1::before {
 }
 
 @keyframes underline {
-	100% {
-		width: 100%;
+	from {
+	  width: 0;
+	  opacity: 0;
 	}
+	to {
+	  width: calc(100% + 20px); /* Adjust the width calculation as needed */
+	  opacity: 1;
+	}
+  }
+
+
+@keyframes appearAnimation {
+100%{
+	opacity: 1;
+}	
 }
 
 @keyframes slideIn {
