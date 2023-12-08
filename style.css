@@ -220,3 +220,27 @@ h1::after{
 	border-radius: 22px;
 	background-color: burlywood;
 }
+
+@media screen and (max-width: 600px) {
+	h1 {
+		font-size: 66px
+	}
+
+	td {
+		height: 100px;
+	}
+	table {
+		width: 80%;
+		height: 70vh;
+	}
+
+	#player-scales {
+		display: flex;
+	}
+
+	#btn-hard {
+		pointer-events: none;
+		background-color: gray;
+	}
+	
+}
