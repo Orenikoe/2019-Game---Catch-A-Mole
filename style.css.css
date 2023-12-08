@@ -1,0 +1,222 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#table-container {
+	position: relative;
+	z-index: 1000;
+}
+
+#highest-score {
+	z-index: 2000;
+	position: relative;
+	font-size: x-large;
+}
+
+.mole {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#body {
+	z-index: -3;
+	background-color: lightgreen;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#player-scales {
+	direction: ltr;
+}
+#table-main {
+	margin: auto;
+	margin-top: 50px;
+}
+
+table {
+	width: 42%;
+	z-index: -2;
+	background-color: white;
+	border-radius: 61px;
+}
+
+.level-choice {
+	opacity: 0; /* Start with the element hidden */
+  animation: appearAnimation 2s ease-in-out 1.5s forwards;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	position: relative;
+	z-index: 5;
+}
+td {
+	border: solid 4px lightgreen;
+	height: 150px;
+	width: 150px;
+}
+
+tr {
+	border: solid 4px lightgreen;
+}
+
+.btn {
+	cursor: pointer;
+	transition: all 6s linear 0s;
+	background-color: #4caf50;
+	border: none;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 10px 10px;
+	border-radius: 8px;
+	z-index: 8;
+}
+
+.visible {
+	display: block;
+}
+
+.unvisible {
+	display: none;
+}
+
+.header {
+	text-align: center;
+}
+
+
+:root {
+	--primary-color: #6cd9ce;
+	--secondary-color: #d93ba1;
+	--complimentary-color: #2e2473;
+}
+
+.container {
+	min-height: 100vh;
+	position: relative;
+	width: 100vw;
+	display: flex;
+	background-color: var(--complimentary-color);
+	justify-content: center;
+	align-items: center;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	position: relative;
+}
+
+h1 {
+	font-size: 150px;
+	color: var(--primary-color);
+	transform: translateY(-600px);
+	animation: 0.5s slideIn ease-in-out forwards 1s;
+	z-index: 10;
+	opacity: 0;
+	position: relative;
+}
+
+
+h1::after{
+		content: '';
+		height: 76px;
+		background-color: var(--secondary-color);
+		position: absolute;
+		bottom: -10px;
+		left: -20px; /* Adjust left and right values as needed */
+		right: -20px;
+		animation: 2.5s underline ease-in-out forwards 1s;
+		mix-blend-mode: screen;
+}
+
+.overlay {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--secondary-color);
+	transform: scale(0.5);
+	animation: 0.5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+	z-index: 1;
+}
+@keyframes skewBg {
+	0% {
+		transform: scale(0.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes underline {
+	from {
+	  width: 0;
+	  opacity: 0;
+	}
+	to {
+	  width: calc(100% + 20px); /* Adjust the width calculation as needed */
+	  opacity: 1;
+	}
+  }
+
+
+@keyframes appearAnimation {
+100%{
+	opacity: 1;
+}	
+}
+
+@keyframes slideIn {
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.overlayTable {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	display: none;
+	position: fixed;
+
+	padding: 26px;
+	font-size: 202px;
+	text-align: center;
+  user-select: none;
+	z-index: 100;
+
+	font-family: fantasy;
+}
+
+#game-over-text {
+	text-align-last: center;
+	margin-top: 200px;
+	font-size: xxx-large;
+  z-index: 1000;
+  user-select: none;
+}
+
+.scale_host {
+	position: relative;
+	width: 220px;
+	height: 40px;
+	text-align: center;
+	color: rebeccapurple;
+	text-decoration: none;
+	line-height: 43px;
+	font-family: 'Oswald', Helvetica;
+	display: block;
+	margin: 15px;
+	border: solid;
+	border-radius: 22px;
+	background-color: burlywood;
+}
